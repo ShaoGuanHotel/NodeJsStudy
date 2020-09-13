@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Express 增删改查</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="sub-header">学生列表</h2>
+                <div class="form-group">
+                    <a href="/students/new" class="btn btn-success">添加</a>
+                    <input type="text" name="name" class="sm-6" minlength="1" placeholder="学生名字">
+                    <button type="button" id="addBtn" class="btn btn-success" autocomplete="off">查找</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>名字</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>爱好</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each students}}
+                            <tr>
+                                <td>{{$value.id}}</td>
+                                <td>{{$value.name}}</td>
+                                <td>{{$value.gender}}</td>
+                                <td>{{$value.age}}</td>
+                                <td>{{$value.hobbies}}</td>
+                                <td>
+                                    <a href="/api/remove?id={{$value.id}}">删除</a>
+                                    <a href="/students/edit?id={{$value.id}}">编辑</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

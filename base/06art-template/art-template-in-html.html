@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../node_modules/art-template/lib/template-web.js"></script>
+    <script type="text/template" id='tpl'>
+        我叫:{{name}}
+    今年:{{other.age}}
+    喜欢:{{each likes}}{{ $value }}{{/each}}
+</script>
+    <script>
+        var ret = template('tpl', {
+            name: 'jack',
+            likes: ['a', '篮球', 'Hotel'],
+            other: {
+                age: 18
+            }
+        })
+        console.log(ret)
+    </script>
+</body>
+
+</html>
